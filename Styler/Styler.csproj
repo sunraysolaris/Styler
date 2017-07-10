@@ -195,9 +195,14 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
-    <Compile Include="Areas\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\BaseController.cs" />
+    <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\NavBarController.cs" />
+    <Compile Include="Areas\Admin\Models\NavBarViewModel.cs" />
+    <Compile Include="Areas\Admin\Models\ProductsViewModel.cs" />
+    <Compile Include="Areas\Admin\Models\UserViewModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Areas\Admin\Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Core\ApplicationDbContext.cs" />
@@ -233,9 +238,12 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
-    <Content Include="Areas\Admin\Views\Admin\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_SideNavBar.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\Users.cshtml" />
     <None Include="Properties\PublishProfiles\HostBuddy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -254,6 +262,7 @@
     </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -288,7 +297,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\Admin\Views\Base\" />
+    <Folder Include="Areas\Admin\Views\NavBar\" />
     <Folder Include="Views\Admin\" />
   </ItemGroup>
   <ItemGroup>

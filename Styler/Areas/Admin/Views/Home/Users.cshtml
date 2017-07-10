@@ -1,0 +1,12 @@
+﻿@model IEnumerable<Styler.Areas.Admin.Models.UserViewModel>
+@{
+    ViewBag.Title = "Users";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<div>
+    @foreach (var item in Model)
+    {
+        <span>@item.Name</span>
+        <span>@item.Pass</span>
+    }
+</div>

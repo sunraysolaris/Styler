@@ -1,0 +1,12 @@
+﻿@model Styler.Areas.Admin.Models.NavBarViewModel
+<div class="sidebar-nav">
+    <div class="well" style="width:300px; padding: 8px 0; float:left">
+        <ul class="nav nav-list">
+            <li class=""><a href="#">Admin Menu</a></li>
+            @foreach (var Item in Model.NavItems)
+            {
+                <li><a href="@Item.Url"><i class="icon-home"></i> @Item.ItemName</a></li>
+            }
+        </ul>
+    </div>
+</div>
