@@ -8,11 +8,11 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    <div id="adminContainer">
-        <div id="left">
+    <div class="container">
+        <div class="row">
             @{Html.RenderAction("Index", "NavBar");}
         </div>
-        <div id="right">
+        <div class="row">
             @RenderBody()
             <hr />
             <footer>
@@ -21,7 +21,6 @@
         </div>
 
     </div>
-
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")

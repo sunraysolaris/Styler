@@ -22,12 +22,3 @@ select,
 textarea {
     max-width: 280px;
 }
-#adminContainer{
-    display:table;
-}
-#left{
-    display:table-cell;
-}
-#right{
-    display:table-cell;
-}
