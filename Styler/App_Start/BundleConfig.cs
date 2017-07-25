@@ -25,8 +25,9 @@ namespace Styler
                       "~/Scripts/respond.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/bootstrap-yeti.min.css",
+                      "~/Content/site.css",
+                      "~/Content/uknow.css"));
         }
     }
 }
