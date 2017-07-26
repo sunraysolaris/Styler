@@ -58,18 +58,18 @@ sub {
 }
 
 .clickmeComponent .simple a p:after, .clickmeComponent .subpremium .callToAction:after, .footer-icon-cards, .gatewayProductSearchSliderWrap .next, .gatewayProductSearchSliderWrap .prev, .header .header-nav > ul > li:after, .header-top .icons .icon-dropdown ul a:after, .icon-account, .icon-arrow-down, .icon-arrow-left-large, .icon-arrow-right, .icon-arrow-right-large, .icon-bag, .icon-buttonchevronlarge-white, .icon-buttonchevronsmall-black, .icon-cards, .icon-close, .icon-facebook, .icon-facebook-black, .icon-heart, .icon-heart-red, .icon-heart-red-solid, .icon-help, .icon-instagram, .icon-instagram-black, .icon-instagram-inline, .icon-lock, .icon-mail, .icon-menu, .icon-phone, .icon-pinterest, .icon-pinterest-black, .icon-search, .icon-twitter, .icon-twitter-black, .icon-youtube, .icon-youtube-black, .imagesGridComponent .imageGridLink:after, .mobile-nav-toggle, .sitemap .footing-link:after, .spm-btn-dart:after {
-    background-image: url(//images-na.ssl-images-amazon.com/images/S/fezbucket/ZapposFrontendGlobalAssets/6pm-refresh/images/icons-sprite-1x-5ead58f9._TTW_.png);
+    background-image: url(../Resources/Images/icons-sprites.png);
 }
 
 @media (min--moz-device-pixel-ratio:1.5),(-o-min-device-pixel-ratio:3/2),(-webkit-min-device-pixel-ratio:1.5),(min-device-pixel-ratio:1.5),(min-resolution:1.5dppx) {
     .clickmeComponent .simple a p:after, .clickmeComponent .subpremium .callToAction:after, .footer-icon-cards, .gatewayProductSearchSliderWrap .next, .gatewayProductSearchSliderWrap .prev, .header .header-nav > ul > li:after, .header-top .icons .icon-dropdown ul a:after, .icon-account, .icon-arrow-down, .icon-arrow-left-large, .icon-arrow-right, .icon-arrow-right-large, .icon-bag, .icon-buttonchevronlarge-white, .icon-buttonchevronsmall-black, .icon-cards, .icon-close, .icon-facebook, .icon-facebook-black, .icon-heart, .icon-heart-red, .icon-heart-red-solid, .icon-help, .icon-instagram, .icon-instagram-black, .icon-instagram-inline, .icon-lock, .icon-mail, .icon-menu, .icon-phone, .icon-pinterest, .icon-pinterest-black, .icon-search, .icon-twitter, .icon-twitter-black, .icon-youtube, .icon-youtube-black, .imagesGridComponent .imageGridLink:after, .mobile-nav-toggle, .sitemap .footing-link:after, .spm-btn-dart:after {
-        background-image: url(//images-na.ssl-images-amazon.com/images/S/fezbucket/ZapposFrontendGlobalAssets/6pm-refresh/images/icons-sprite-2x-3bfab65f._TTW_.png);
+        background-image: url(../Resources/Images/icons-sprites.png);
         background-size: 847px 44px;
     }
 }
 
 .formError {
-    background-image: url(//images-na.ssl-images-amazon.com/images/S/fezbucket/ZapposFrontendGlobalAssets/6pm-refresh/images/Icon-Alert-1x-25522b3e._TTW_.png) !important;
+    background-image: url(../Resources/Images/icons-sprites.png) !important;
 }
 
 .footer-icon-cards, .icon-cards {
@@ -825,7 +825,7 @@ input.formError, input.inputError, select.formError, select.inputError {
         }
 
 .header {
-    background: #FFF;
+    background: #faeef9;
     margin-bottom: 20px;
 }
 
@@ -914,8 +914,8 @@ input.formError, input.inputError, select.formError, select.inputError {
             width: 90%;
             padding: 0 5%;
             margin: 0 4%;
-            border-left: solid 1px #D8D8D8;
-            border-right: solid 1px #D8D8D8;
+            border-left: solid 1px #eec4eb;
+            border-right: solid 1px #eec4eb;
         }
 
         .header-top .phone-callout p {
@@ -1034,7 +1034,7 @@ input.formError, input.inputError, select.formError, select.inputError {
         }
 
         .header-top .icons .icon-dropdown li {
-            border-bottom: solid 1px #D8D8D8;
+            border: solid 1px #eec4eb;
         }
 
             .header-top .icons .icon-dropdown li:last-child {
@@ -1042,14 +1042,14 @@ input.formError, input.inputError, select.formError, select.inputError {
             }
 
         .header-top .icons .icon-dropdown ul:after {
-            border-color: transparent transparent #FFF;
+            /*border-color: transparent transparent #FFF;*/
             border-width: 10px;
             left: calc(50% - 10px);
             z-index: 8;
         }
 
         .header-top .icons .icon-dropdown ul:before {
-            border-color: transparent transparent #D8D8D8;
+            /*border-color: transparent transparent #eec4eb;*/
             border-width: 11px;
             left: calc(50% - 11px);
         }
@@ -1080,7 +1080,7 @@ input.formError, input.inputError, select.formError, select.inputError {
     }
 
 .header-nav > ul > li label, .header-nav > ul > li > a, .header-nav > ul > li > span {
-    color: #444;
+    color: #b572b0;
     font: 500 16px Knockout,Helvetica,Arial,sans-serif;
     letter-spacing: 1.8px;
 }
@@ -1189,10 +1189,10 @@ input.formError, input.inputError, select.formError, select.inputError {
 .header-dropdown, .search-dropdown {
     display: block;
     overflow: hidden;
-    border-top: 1px solid #D8D8D8;
+    border-top: 1px solid #eec4eb;
     width: 100%;
     left: 0;
-    background: #F1F1F1;
+    background: #f7e3f6;
     z-index: 5;
     text-align: left;
     -webkit-box-shadow: 0 10px 20px -10px #b3b3b3;
@@ -1398,7 +1398,7 @@ input.formError, input.inputError, select.formError, select.inputError {
         align-items: center;
         padding-left: 18px;
         height: 100%;
-        border-left: 1px solid #D8D8D8;
+        border-left: 1px solid #eec4eb; 
         font-feature-settings: 'lnum';
     }
 
@@ -1483,7 +1483,7 @@ input.formError, input.inputError, select.formError, select.inputError {
 
         .header-sub-nav .lists a, .header-sub-nav .lists h5 {
             font-size: 16px;
-            color: #000;
+            color: #b572b0;
             text-decoration: none;
             margin-bottom: .5em;
             display: block;

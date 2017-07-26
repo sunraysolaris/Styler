@@ -228,6 +228,15 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\admin.css" />
+    <Content Include="Content\adminX.css" />
+    <Content Include="Resources\Images\fashion_bgifted-logo.png" />
+    <Content Include="Resources\Images\icons-sprites.png" />
+    <Content Include="Resources\Images\lips.jpg" />
+    <Content Include="Resources\Images\Quinn.png" />
+    <Content Include="Resources\Images\much-logo.png" />
+    <Content Include="Resources\Images\metamorphosis.png" />
+    <Content Include="Resources\Images\triangular-logo.png" />
     <Content Include="Content\bootstrap-yeti.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -302,6 +311,8 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_Header.cshtml" />
+    <Content Include="Views\Home\_Products.cshtml" />
+    <Content Include="Views\Shared\_LeftSideMenu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

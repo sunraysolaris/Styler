@@ -34,16 +34,16 @@ namespace Styler.Areas.Admin.Controllers
             }));
             return View(model);
         }
-        [HttpPost]
-        public PartialViewResult ListEm(SearchViewModel searchViewModel)
+        //[HttpPost]
+        public PartialViewResult ListProducts(SearchViewModel searchViewModel)
         {
             var model = new List<ProductsViewModel>();
-            model.Add(new ProductsViewModel { ProductName = "xx", Description = "yy", Price = 5 });
-            model.Add(new ProductsViewModel { ProductName = "ff", Description = "yy", Price = 5 });
-            model.Add(new ProductsViewModel { ProductName = "dd", Description = "yy", Price = 5 });
-            model.Add(new ProductsViewModel { ProductName = "zz", Description = "yy", Price = 5 });
-            var res = model.Where(i => i.ProductName.Contains(searchViewModel.KeyWord));
-            return PartialView("_Products", res);
+            var products = DbContext
+                .Products
+                .Where(product => product.ProductName.Contains(searchViewModel.KeyWord)|| searchViewModel.KeyWord==null)
+                .Select(product => new ProductsViewModel { ProductName = product.ProductName, Description = product.Description, Price = product.Price }).ToList();
+
+            return PartialView("_Products", products);
         }
 
         public ActionResult Users()

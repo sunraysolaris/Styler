@@ -9,39 +9,73 @@
 
 </head>
 <body>
-    @*<div class="navbar navbar-inverse">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+    <div class="header">
+        <div class="header-top refresh-container">
+            <div class="logo">
+                <div class="imagesComponent ">
+                    <a href="#">
+                        <img src="~/Resources/Images/fashion_bgifted-logo.png" class="gae-click*Global-Header-sixpmrefreshheader*Promos*6pm-Your-Premier-Destination-for-Discount-Fashion images " alt="Logo">
+                    </a>
+                </div>
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
-                @Html.Partial("_LoginPartial")
+            <div class="callout-top">
+                <a href="/shipping-and-delivery-questions" class="gae-click*Global-Header-sixpmrefreshheader*Promos* bannerComponent ">
+                    <p>
+                        <span class="red">
+                            Free shipping
+                        </span>
+                        any 2+ items or $50+!
+                    </p>
+                    <p class="calloutlink">See Details</p>
+                </a>
+            </div>
+            <div class="phone-callout">
+                <div>
+                    <a class="phone gae-click*Global*Header*Phone-Desktop" href="tel:1-888-676-2660">
+                        +995 599 46 84 09
+                    </a>
+                    <div class="time">
+                        @DateTime.UtcNow
+                    </div>
+                </div>
+            </div>
+            <div class="icons">
+                <div class="icon-dropdown">
+                    <a href="/account" title="Account" class="icon-account gae-click*Global*Header*My-Account"></a>
+                    <ul id="accountInfo-6pmrefresh">
+                        <li class="first login-register"><a href="#">Log In or Register</a></li>
+                        <li><a href="/account">My Account</a></li>
+                    </ul>
+                </div>
+                <div class="hide-mobile">
+                    <a href="/customer-service-center" class="icon-help gae-click*Global*Header*Help" title="Help"></a>
+                </div>
+                <div>
+                    <a href="/account/favorites" class="icon-heart gae-click*Global*Header*Favorites" title="Favorites"></a>
+                </div>
+                <div>
+                    <a href="/cart" title="Shopping Bag" class="icon-bag gae-click*Global*Header*Cart">
+                        <span class="cart-count hidden"></span>
+                    </a>
+                </div>
+                <div class="mobile-nav-toggle gae-click*Global*Header*Mobile-Nav-Open" data-nav-toggle=""></div>
             </div>
         </div>
-        <div class="container" style="height:30px; width:100%; background-color:#03699c"></div>
-    </div>*@
-    @Html.Partial("_Header")
-    <div class="container body-content">
-        
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Date.ToShortDateString() - SoLaRiS</p>
-        </footer>
-    </div>
+        @Html.Partial("_Header")
+        </div>
+       
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+        <div class="container body-content">
+
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Date.ToShortDateString() - SoLaRiS</p>
+            </footer>
+        </div>
+
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
 </body>
 </html>

@@ -1,0 +1,30 @@
+﻿@model IEnumerable<Styler.Models.Product>
+
+<div class="row">
+    @foreach (var product in Model)
+    {
+        <div class="col-sm-4 col-lg-4 col-md-4">
+            <div class="thumbnail">
+                <img src="@product.PhotoUrl" alt="">
+                <div class="caption">
+                    <h4 class="pull-right">@product.Price</h4>
+                    <h4>
+                        <a href="#">@product.ProductName</a>
+                    </h4>
+                    <p>@product.Description</p>
+                </div>
+                <div class="ratings">
+                    <p class="pull-right">raiting</p>
+                    <p>
+                        <span class="glyphicon glyphicon-star red"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+

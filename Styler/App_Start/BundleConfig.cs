@@ -27,7 +27,8 @@ namespace Styler
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap-yeti.min.css",
                       "~/Content/site.css",
-                      "~/Content/uknow.css"));
+                      "~/Content/uknow.css",
+                      "~/Content/adminX.css"));
         }
     }
 }

@@ -1,74 +1,41 @@
 ﻿@model Styler.Areas.Admin.Models.NavBarViewModel
-@*<div class="sidebar-nav">
-    <div class="well" style="width:300px; padding: 8px 0; float:left">
-        <ul class="nav nav-list">
-            <li class=""><a href="#">Admin Menu</a></li>
+
+<div class="nav-side-menu">
+    <div class="brand">Brand Logo</div>
+    <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
+    <div class="menu-list">
+        <ul id="menu-content" class="menu-content collapse out">
             @foreach (var Item in Model.NavItems)
             {
-                <li><a href="@Item.Url"><i class="icon-home"></i> @Item.ItemName</a></li>
+            @*<li>
+                <a href="#">
+                    <i class="fa fa-dashboard fa-lg"></i> @Item.ItemName
+                </a>
+            </li>*@
+            <li data-toggle="collapse" data-target="#products" class="collapsed">
+                <a href="@Item.Url"><i class="fa fa-gift fa-lg"></i> @Item.ItemName</a>
+            </li>
             }
+            @*<ul class="sub-menu collapse" id="products">
+                <li class="active"><a href="#">CSS3 Animation</a></li>
+                <li><a href="#">General</a></li>
+                <li><a href="#">Buttons</a></li>
+                <li><a href="#">Tabs & Accordions</a></li>
+                <li><a href="#">Typography</a></li>
+                <li><a href="#">FontAwesome</a></li>
+                <li><a href="#">Slider</a></li>
+                <li><a href="#">Panels</a></li>
+                <li><a href="#">Widgets</a></li>
+                <li><a href="#">Bootstrap Model</a></li>
+            </ul>*@
+            @*<li data-toggle="collapse" data-target="#service" class="collapsed">
+                <a href="#"><i class="fa fa-globe fa-lg"></i> Services <span class="arrow"></span></a>
+            </li>*@
+            @*<ul class="sub-menu collapse" id="service">
+                <li>New Service 1</li>
+                <li>New Service 2</li>
+                <li>New Service 3</li>
+            </ul>*@
         </ul>
     </div>
-</div>*@
-<style>
-body {
-    font-family: "Lato", sans-serif;
-}
-
-.sidenav {
-    height: 100%;
-    width: 0;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color: #111;
-    overflow-x: hidden;
-    transition: 0.5s;
-    padding-top: 60px;
-}
-
-.sidenav a {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 25px;
-    color: #818181;
-    display: block;
-    transition: 0.3s;
-}
-
-.sidenav a:hover, .offcanvas a:focus{
-    color: #f1f1f1;
-}
-
-.sidenav .closebtn {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
-}
-
-@@media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
-}
-</style>
-<div id="mySidenav" class="sidenav">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    @foreach (var Item in Model.NavItems)
-            {
-        <a href="@Item.Url"><i class="icon-home"></i> @Item.ItemName</a>
-    }
 </div>
-<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
-
-<script>
-function openNav() {
-    document.getElementById("mySidenav").style.width = "250px";
-}
-
-function closeNav() {
-    document.getElementById("mySidenav").style.width = "0";
-}
-</script>

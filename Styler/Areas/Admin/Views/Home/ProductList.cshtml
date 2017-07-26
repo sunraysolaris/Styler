@@ -11,7 +11,8 @@
     <input type="submit" value="Search"/>
     }
 </div>
-<div id="listProducts">
+<div class="row" id="listProducts">
+    @Html.Action("ListProducts")
 </div>
 @section scripts{
    <script type="text/javascript">
@@ -29,6 +30,5 @@
            })
 
        })
-    </script>
-    
-     }
+    </script>   
+}
