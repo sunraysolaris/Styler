@@ -11,6 +11,9 @@
             <th>
                 Price
             </th>
+            <th>
+                ქმედება
+            </th>
         </tr>
     </thead>
     @foreach (var product in Model)
@@ -23,8 +26,15 @@
                 @product.Description
             </td>
             <td>
-                @product.Price
+                $@product.Price
+            </td>
+            <td>
+                <a class="btn btn-warning" href="/Admin/Product/Edit/@product.ProductID">რედაქტირება</a>
+                <a class="btn btn-danger deleteProduct" href="#" data-id="@product.ProductID">წაშლა</a>
             </td>
         </tr>
     }
 </table>
+<div class="">
+    <span class="btn btn-primary">1</span>
+</div>

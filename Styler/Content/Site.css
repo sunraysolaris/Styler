@@ -22,3 +22,23 @@ select,
 textarea {
     max-width: 280px;
 }
+
+
+/*Admin area Styles*/
+h1.page-header {
+    margin-top: -5px;
+}
+
+.sidebar {
+    padding-left: 0;
+}
+
+.main-container { 
+    background: #FFF;
+    padding-top: 15px;
+    margin-top: -20px;
+}
+
+.footer {
+    width: 100%;
+}  

@@ -4,16 +4,36 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/css")
+    @Styles.Render("~/AdminContent/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    <div>
-        <div>
-            @{Html.RenderAction("Index", "NavBar");}
+    @*<div>
+            <div class="col-md-12" id="adminLayoutHead" style="background-color:#ff0000; padding: 5px">
+                <h4 style="margin: 0px">This is suppose to be in the main content</h4>
+            </div>
+            <div>
+                @{Html.RenderAction("Index", "NavBar");}
+            </div>
+            @RenderBody()
+            <hr />
+        </div>*@
+    @{ Html.RenderAction("Header", "NavBar");}
+
+    <div class="container-fluid main-container">
+        @{Html.RenderAction("Sidebar", "NavBar");}
+        <div class="col-md-10 content">
+            <div class="panel panel-default">               
+                    @RenderBody()
+            </div>
         </div>
-        @RenderBody()
-        <hr />
+       
+        <footer class="pull-left footer">
+            <p class="col-md-12">
+                <hr class="divider">
+                Copyright &COPY; 2017 <a href="#">SoLaRiS</a>
+            </p>
+        </footer>
     </div>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")

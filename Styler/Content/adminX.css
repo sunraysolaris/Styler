@@ -1,4 +1,7 @@
-﻿.nav-side-menu {
+﻿.body{
+    height:0px;
+}
+.nav-side-menu {
   overflow: auto;
   font-family: verdana;
   font-size: 12px;

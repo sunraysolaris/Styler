@@ -10,7 +10,11 @@ namespace Styler
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js",
-                        "~/Scripts/jquery.unobtrusive-ajax"));
+                        "~/Scripts/jquery.unobtrusive-ajax",
+                        "~/Scripts/toastr.min.js",
+                        "~/Scripts/bootbox.min.js",
+                        "~/Scripts/jquery.validate.min.js",
+                        "~/Scripts/jquery.validate.unobtrusive.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
@@ -27,8 +31,12 @@ namespace Styler
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap-yeti.min.css",
                       "~/Content/site.css",
-                      "~/Content/uknow.css",
-                      "~/Content/adminX.css"));
+                      "~/Content/uknow.css"
+                      ));
+            bundles.Add(new StyleBundle("~/AdminContent/css").Include(
+                     "~/Content/bootstrap-yeti.min.css",
+                     "~/Content/site.css",
+                     "~/Content/toastr.min.css"));
         }
     }
 }

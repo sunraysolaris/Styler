@@ -199,6 +199,8 @@
     <Compile Include="Areas\Admin\Controllers\BaseController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\NavBarController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
+    <Compile Include="Areas\Admin\Models\BaseViewModel.cs" />
     <Compile Include="Areas\Admin\Models\NavBarViewModel.cs" />
     <Compile Include="Areas\Admin\Models\ProductsViewModel.cs" />
     <Compile Include="Areas\Admin\Models\SearchViewModel.cs" />
@@ -230,6 +232,8 @@
   <ItemGroup>
     <Content Include="Content\admin.css" />
     <Content Include="Content\adminX.css" />
+    <Content Include="Content\toastr.css" />
+    <Content Include="Content\toastr.min.css" />
     <Content Include="Resources\Images\fashion_bgifted-logo.png" />
     <Content Include="Resources\Images\icons-sprites.png" />
     <Content Include="Resources\Images\lips.jpg" />
@@ -245,6 +249,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\bootbox.js" />
+    <Content Include="Scripts\bootbox.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
@@ -256,8 +262,12 @@
     <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_SideNavBar.cshtml" />
     <Content Include="Areas\Admin\Views\Home\Users.cshtml" />
-    <Content Include="Areas\Admin\Views\Home\ProductList.cshtml" />
-    <Content Include="Areas\Admin\Views\Shared\_Products.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\ProductList.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\_ProductGrid.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_Header.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\Edit.cshtml" />
+    <Content Include="Content\toastr.scss" />
+    <Content Include="Content\toastr.less" />
     <None Include="Properties\PublishProfiles\HostBuddy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -272,6 +282,8 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\toastr.js" />
+    <Content Include="Scripts\toastr.min.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
