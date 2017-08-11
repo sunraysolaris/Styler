@@ -51,7 +51,6 @@
                 var id = delProduct.attr('data-id');
                 bootbox.confirm("დარწმუნებული ხართ რომ გსურთ წაშალოთ მონაცემი?", function (result) {
                     if (result) {
-
                         $.ajax({
                             url: "/Admin/Product/Delete/" + id,
                             type: "Post",

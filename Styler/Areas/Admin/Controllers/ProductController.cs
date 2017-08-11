@@ -15,15 +15,25 @@ namespace Styler.Areas.Admin.Controllers
             return View();
         }
         //[HttpPost]
-        public PartialViewResult ListProducts(SearchViewModel searchViewModel)
+        public PartialViewResult ListProducts(SearchViewModel searchViewModel, int pageNumber = 1)
         {
-            var model = new List<ProductsViewModel>();
+            var ItemPerPage = 30; // პროდუქტი 1 გვერდზე
             var products = DbContext
                 .Products
                 .Where(product => product.ProductName.Contains(searchViewModel.KeyWord) || searchViewModel.KeyWord == null)
-                .Select(product => new ProductsViewModel { ProductID = product.ProductID, ProductName = product.ProductName, Description = product.Description, Price = product.Price }).ToList();
+                .Select(product => new ProductViewModel { ProductID = product.ProductID, ProductName = product.ProductName, Description = product.Description, Price = product.Price })
+                .OrderBy(product => product.ProductName)
+                .Skip((pageNumber - 1) * ItemPerPage).ToList();
 
-            return PartialView("_ProductGrid", products);
+            var PageCount = (products.Count / ItemPerPage) - (products.Count % ItemPerPage);
+            var model = new ProductsListViewModel
+            {
+                Products = products,
+                PageCount = PageCount > 1 ? PageCount : 1,
+                CurrentPageNumber = pageNumber
+            };
+
+            return PartialView("_ProductGrid", model);
         }
         public ActionResult Edit(int? Id)
         {
@@ -35,7 +45,7 @@ namespace Styler.Areas.Admin.Controllers
                     return View("Error");
                 }
 
-                var model = new ProductsViewModel
+                var model = new ProductViewModel
                 {
                     ProductID = ProductToEdit.ProductID,
                     ProductName = ProductToEdit.ProductName,
@@ -49,15 +59,15 @@ namespace Styler.Areas.Admin.Controllers
                 };
                 return View(model);
             }
-            return View(new ProductsViewModel());
+            return View(new ProductViewModel());
 
         }
         [HttpPost]
-        public ActionResult Edit(ProductsViewModel product)
+        public ActionResult Edit(ProductViewModel product)
         {
             if (ModelState.IsValid)
             {
-                int queryStatus=0;
+                int affectedRowCount = 0;
                 if (product.ProductID > 0)// while Editing existed item
                 {
                     var ProductToEdit = DbContext.Products.SingleOrDefault(p => p.ProductID == product.ProductID);
@@ -72,7 +82,7 @@ namespace Styler.Areas.Admin.Controllers
                         ProductToEdit.Price = product.Price;
                         ProductToEdit.PhotoUrl = product.PhotoUrl;
 
-                        queryStatus = DbContext.SaveChanges();
+                        affectedRowCount = DbContext.SaveChanges();
                     }
                     else
                     {
@@ -93,9 +103,9 @@ namespace Styler.Areas.Admin.Controllers
                         Price = product.Price,
                         PhotoUrl = product.PhotoUrl,
                     });
-                    queryStatus = DbContext.SaveChanges();
+                    affectedRowCount = DbContext.SaveChanges();
                 }
-                if (queryStatus > 0) // if more then 0 row changed go to List
+                if (affectedRowCount > 0) // if more then 0 row changed go to List
                 {
                     return RedirectToAction("ProductList");
                 }

@@ -1,4 +1,5 @@
-﻿@model IEnumerable<Styler.Areas.Admin.Models.ProductsViewModel>
+﻿@*@model IEnumerable<Styler.Areas.Admin.Models.ProductViewModel>*@
+@model Styler.Areas.Admin.Models.ProductsListViewModel
 <table class="table table-bordered">
     <thead>
         <tr>
@@ -16,7 +17,7 @@
             </th>
         </tr>
     </thead>
-    @foreach (var product in Model)
+    @foreach (var product in Model.Products)
     {
         <tr>
             <td>
@@ -36,5 +37,9 @@
     }
 </table>
 <div class="">
-    <span class="btn btn-primary">1</span>
+    @for (int i = 0; i < Model.PageCount; i++)
+    {
+        <span class="btn @(i == Model.CurrentPageNumber ? "btn-primary" : "btn-default")></span>
+    }
+    <span class="btn btn-default">Model.PageCount</span>
 </div>

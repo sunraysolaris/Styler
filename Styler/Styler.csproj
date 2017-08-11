@@ -202,6 +202,7 @@
     <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
     <Compile Include="Areas\Admin\Models\BaseViewModel.cs" />
     <Compile Include="Areas\Admin\Models\NavBarViewModel.cs" />
+    <Compile Include="Areas\Admin\Models\ProductsListViewModel.cs" />
     <Compile Include="Areas\Admin\Models\ProductsViewModel.cs" />
     <Compile Include="Areas\Admin\Models\SearchViewModel.cs" />
     <Compile Include="Areas\Admin\Models\UserViewModel.cs" />

@@ -6,7 +6,7 @@ using System.Web;
 
 namespace Styler.Areas.Admin.Models
 {
-    public class ProductsViewModel : BaseViewModel
+    public class ProductViewModel : BaseViewModel
     {
         
         public int ProductID { get; set; }
