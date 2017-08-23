@@ -18,6 +18,7 @@ namespace Styler.Models
         public string DescriptionRus { get; set; }
         public decimal Price { get; set; }
         public string PhotoUrl { get; set; }
-        //public ICollection<ProductCategory> ProductCategories { get; set; }
+        //public DateTime CreateDate { get; set; }
+        public ICollection<ProductCategory> ProductCategories { get; set; }
     }
 }

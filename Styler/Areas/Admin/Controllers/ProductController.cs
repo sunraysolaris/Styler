@@ -10,26 +10,31 @@ namespace Styler.Areas.Admin.Controllers
 {
     public class ProductController : BaseController
     {
-        public ActionResult ProductList()
+        int ItemPerPage = 10; // პროდუქტი 1 გვერდზე
+        public ActionResult ProductList( int? pageNumber=1, string Keyword = null)
         {
             return View();
         }
         //[HttpPost]
-        public PartialViewResult ListProducts(SearchViewModel searchViewModel, int pageNumber = 1)
+        public PartialViewResult ListProducts(string keyWord, int pageNumber = 1)
         {
-            var ItemPerPage = 30; // პროდუქტი 1 გვერდზე
-            var products = DbContext
-                .Products
-                .Where(product => product.ProductName.Contains(searchViewModel.KeyWord) || searchViewModel.KeyWord == null)
-                .Select(product => new ProductViewModel { ProductID = product.ProductID, ProductName = product.ProductName, Description = product.Description, Price = product.Price })
-                .OrderBy(product => product.ProductName)
-                .Skip((pageNumber - 1) * ItemPerPage).ToList();
 
-            var PageCount = (products.Count / ItemPerPage) - (products.Count % ItemPerPage);
+            var productsQuery = DbContext
+                .Products
+                .Where(product => product.ProductName.Contains(keyWord) || keyWord == null)
+                .Select(product => new ProductViewModel { ProductID = product.ProductID, ProductName = product.ProductName, Description = product.Description, Price = product.Price })
+                .OrderBy(product => product.ProductID);
+            var pageCount = (int)Math.Ceiling((double)productsQuery.Count() / ItemPerPage);
+
+            var products = productsQuery
+                .Skip((pageNumber - 1) * ItemPerPage)
+                .Take(ItemPerPage).ToList();
+
             var model = new ProductsListViewModel
             {
+                KeyWord = keyWord,
+                PageCount = pageCount,
                 Products = products,
-                PageCount = PageCount > 1 ? PageCount : 1,
                 CurrentPageNumber = pageNumber
             };
 

@@ -9,10 +9,10 @@
     @using (Html.BeginForm("ListProducts", "Product", FormMethod.Post, new { id = "searchForm", @class = "form-inline" }))
     {
         <div class="input-group pull-left">
-            <a class="form-control btn-success col-md-2" href="/Admin/Product/Edit">ახლის დამატება</a>
+            <a class="form-control btn btn-success col-md-2" href="/Admin/Product/Edit">ახლის დამატება</a>
         </div>
         <div class="input-group pull-right">
-            <input class="form-control col-md-3" name="KeyWord" type="text" placeholder="ძიება..." />
+            <input id="searchBox" class="form-control col-md-3" name="KeyWord" type="text" placeholder="ძიება..." />
             <span class="input-group-btn">
                 <input class="form-control btn-default col-md-2" type="submit" value="ძიება" />
             </span>

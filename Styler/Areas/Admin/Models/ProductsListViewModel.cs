@@ -9,6 +9,7 @@ namespace Styler.Areas.Admin.Models
     {
         public int? PageCount { get; set; }
         public int CurrentPageNumber { get; set; }
+        public string KeyWord { get; set; }
         public List<ProductViewModel> Products { get; set; }
     }
 }

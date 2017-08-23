@@ -221,6 +221,10 @@
     <Compile Include="Migrations\201706241558109_AddProductsTableToDatabase.Designer.cs">
       <DependentUpon>201706241558109_AddProductsTableToDatabase.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201708231007182_AddCategoryManyToMany.cs" />
+    <Compile Include="Migrations\201708231007182_AddCategoryManyToMany.Designer.cs">
+      <DependentUpon>201708231007182_AddCategoryManyToMany.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -347,6 +351,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706241558109_AddProductsTableToDatabase.resx">
       <DependentUpon>201706241558109_AddProductsTableToDatabase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708231007182_AddCategoryManyToMany.resx">
+      <DependentUpon>201708231007182_AddCategoryManyToMany.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
