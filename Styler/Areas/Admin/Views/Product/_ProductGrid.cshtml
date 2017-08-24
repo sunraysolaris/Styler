@@ -12,6 +12,9 @@
             <th>
                 Price
             </th>
+            <td>
+                კატეგორია
+            </td>
             <th>
                 ქმედება
             </th>
@@ -30,12 +33,20 @@
                 $@product.Price
             </td>
             <td>
-                <a class="btn btn-warning" href="/Admin/Product/Edit/@product.ProductID">რედაქტირება</a>
+                @foreach (var cat in product.CurrentCategories)
+                {
+                    <span class="btn btn-default"> @cat.CategoryName </span>
+                }
+            </td>
+            <td>
+                @*<a class="btn btn-warning" href="/Admin/Product/Edit/@product.ProductID">რედაქტირება</a>*@
                 <a class="btn btn-danger deleteProduct" href="#" data-id="@product.ProductID">წაშლა</a>
+                @Html.ActionLink("რედაქტირება", "Edit", new { id = product.ProductID }, new { @class= "btn btn-warning" })
             </td>
         </tr>
     }
 </table>
+@* Pagination section *@
 <div class="">
 
     @if (Model.CurrentPageNumber > 1)
@@ -57,16 +68,7 @@
         @Html.ActionLink(Model.PageCount.ToString(), "ProductList", new { pageNumber = Model.PageCount.Value, keyWord = Model.KeyWord }, new { @class = "btn btn-default" })
     }
 </div>
+<script>
+    var keyword = "@Model.KeyWord";
+</script>
 
-@*   KeyWord რომ გამოჩნდეს სერჩბოქსში ამის მცდელობა :)) *@
-@*@section scripts{  
-    <script>
-        $(function(){
-            var keyword = "@Model.KeyWord";
-            debugger;
-            if (keyword) {
-                $('#searchBox').value = keyword;
-            }
-        })
-    </script>
-}*@

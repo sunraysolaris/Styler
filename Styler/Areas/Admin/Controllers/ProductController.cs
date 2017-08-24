@@ -22,8 +22,16 @@ namespace Styler.Areas.Admin.Controllers
             var productsQuery = DbContext
                 .Products
                 .Where(product => product.ProductName.Contains(keyWord) || keyWord == null)
-                .Select(product => new ProductViewModel { ProductID = product.ProductID, ProductName = product.ProductName, Description = product.Description, Price = product.Price })
+                .Select(product => new ProductViewModel
+                {
+                    ProductID = product.ProductID,
+                    ProductName = product.ProductName,
+                    Description = product.Description,
+                    Price = product.Price,
+                    CurrentCategories = product.ProductCategories
+                })
                 .OrderBy(product => product.ProductID);
+
             var pageCount = (int)Math.Ceiling((double)productsQuery.Count() / ItemPerPage);
 
             var products = productsQuery
@@ -44,7 +52,8 @@ namespace Styler.Areas.Admin.Controllers
         {
             if (Id > 0)
             {
-                var ProductToEdit = DbContext.Products.SingleOrDefault(p => p.ProductID == Id);
+                var ProductToEdit = DbContext.Products.Include("ProductCategories").SingleOrDefault(p => p.ProductID == Id);
+                var categoryList = DbContext.Categories.ToList();
                 if (ProductToEdit == null)
                 {
                     return View("Error");
@@ -60,7 +69,9 @@ namespace Styler.Areas.Admin.Controllers
                     DescriptionEng = ProductToEdit.DescriptionEng,
                     DescriptionRus = ProductToEdit.DescriptionRus,
                     Price = ProductToEdit.Price,
-                    PhotoUrl = ProductToEdit.PhotoUrl
+                    PhotoUrl = ProductToEdit.PhotoUrl,
+                    CurrentCategories = ProductToEdit.ProductCategories,
+                    CategoryList = categoryList
                 };
                 return View(model);
             }
@@ -86,7 +97,7 @@ namespace Styler.Areas.Admin.Controllers
                         ProductToEdit.DescriptionRus = product.DescriptionRus;
                         ProductToEdit.Price = product.Price;
                         ProductToEdit.PhotoUrl = product.PhotoUrl;
-
+                        ProductToEdit.ProductCategories = product.CurrentCategories.ToList();
                         affectedRowCount = DbContext.SaveChanges();
                     }
                     else

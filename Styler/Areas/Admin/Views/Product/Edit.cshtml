@@ -4,6 +4,7 @@
     ViewBag.Title = "Edit";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
+
 @if (Model.IsError)
 {
     <div class="row text-danger">
@@ -84,7 +85,17 @@
                     @Html.ValidationMessageFor(model => model.PhotoUrl, "", new { @class = "text-danger" })
                 </div>
             </div>
-
+            <div class="form-group">
+                @Html.LabelFor(model => model.CategoryList, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <select name="CurrentCategories" id="categoryList" class="form-control" multiple>
+                        @foreach (var cat in Model.CategoryList)
+                        {
+                            <option value="@cat.CategoryID">@cat.CategoryName</option>
+                        }
+                    </select>
+                </div>
+            </div>
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
                     <input type="submit" value="შენახვა" class="btn btn-primary" />
@@ -97,3 +108,21 @@
 <div>
     @Html.ActionLink("სიაზე დაბრუნება", "ProductList")
 </div>
+@section scripts{
+    <script>
+        $(function () {
+
+            $('#categoryList').chosen({
+                width: '280px',
+                no_results_text: 'არაფერი მოიძებნა!',
+                placeholder_text_multiple: 'აირჩიეთ მონაწილეები'
+            });
+            var selected = @Html.Raw(Model.CurrentCategories.Select(c => c.CategoryID).ToArray());
+
+            $('#categoryList').val(selected);
+
+
+})
+    </script>
+
+}

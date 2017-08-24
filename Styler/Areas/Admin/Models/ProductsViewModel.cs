@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Styler.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -21,6 +22,8 @@ namespace Styler.Areas.Admin.Models
         [Required(ErrorMessage = "გთხოვთ შეიყვანოთ ფასი!")]
         [DisplayFormat(DataFormatString = "{0:C}")]
         public decimal Price { get; set; }
+        public IEnumerable<ProductCategory> CurrentCategories { get; set; }
+        public IEnumerable<ProductCategory> CategoryList { get; set; }
         [Required(ErrorMessage = "გთხოვთ შეიყვანოთ ფოტოს ბმული!")]
         public string PhotoUrl { get; set; }
     }
