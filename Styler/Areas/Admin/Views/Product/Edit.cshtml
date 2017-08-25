@@ -1,4 +1,4 @@
-﻿@model Styler.Areas.Admin.Models.ProductViewModel
+﻿@model Styler.Areas.Admin.Models.ProductEditViewModel
 
 @{
     ViewBag.Title = "Edit";
@@ -86,7 +86,7 @@
                 </div>
             </div>
             <div class="form-group">
-                @Html.LabelFor(model => model.CategoryList, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.LabelFor(model => model.CurrentCategories, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
                     <select name="CurrentCategories" id="categoryList" class="form-control" multiple>
                         @foreach (var cat in Model.CategoryList)
@@ -117,10 +117,11 @@
                 no_results_text: 'არაფერი მოიძებნა!',
                 placeholder_text_multiple: 'აირჩიეთ მონაწილეები'
             });
-            var selected = @Html.Raw(Model.CurrentCategories.Select(c => c.CategoryID).ToArray());
+            var selected = @Html.Raw(Json.Encode(Model.CurrentCategories));
 
             $('#categoryList').val(selected);
-
+            $('select').trigger("chosen:updated");
+            
 
 })
     </script>
