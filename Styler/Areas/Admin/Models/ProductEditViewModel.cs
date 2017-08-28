@@ -7,11 +7,10 @@ using System.Web;
 
 namespace Styler.Areas.Admin.Models
 {
-    public class ProductViewModel : BaseViewModel
+    public class ProductEditViewModel : BaseViewModel
     {
-        
         public int ProductID { get; set; }
-        [Required(ErrorMessage ="გთხოვთ შეიყვანოთ დასახელება!")]
+        [Required(ErrorMessage = "გთხოვთ შეიყვანოთ დასახელება!")]
         public string ProductName { get; set; }
         public string ProductNameEng { get; set; }
         public string ProductNameRus { get; set; }
@@ -22,7 +21,7 @@ namespace Styler.Areas.Admin.Models
         [Required(ErrorMessage = "გთხოვთ შეიყვანოთ ფასი!")]
         [DisplayFormat(DataFormatString = "{0:C}")]
         public decimal Price { get; set; }
-        public IEnumerable<ProductCategory> CurrentCategories { get; set; }
+        public int[] CurrentCategories { get; set; }
         public IEnumerable<ProductCategory> CategoryList { get; set; }
         [Required(ErrorMessage = "გთხოვთ შეიყვანოთ ფოტოს ბმული!")]
         public string PhotoUrl { get; set; }

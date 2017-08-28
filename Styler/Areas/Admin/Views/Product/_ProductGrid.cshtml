@@ -1,4 +1,5 @@
-﻿@model IEnumerable<Styler.Areas.Admin.Models.ProductsViewModel>
+﻿@*@model IEnumerable<Styler.Areas.Admin.Models.ProductViewModel>*@
+@model Styler.Areas.Admin.Models.ProductsListViewModel
 <table class="table table-bordered">
     <thead>
         <tr>
@@ -11,12 +12,15 @@
             <th>
                 Price
             </th>
+            <td>
+                კატეგორია
+            </td>
             <th>
                 ქმედება
             </th>
         </tr>
     </thead>
-    @foreach (var product in Model)
+    @foreach (var product in Model.Products)
     {
         <tr>
             <td>
@@ -29,12 +33,42 @@
                 $@product.Price
             </td>
             <td>
-                <a class="btn btn-warning" href="/Admin/Product/Edit/@product.ProductID">რედაქტირება</a>
+                @foreach (var cat in product.CurrentCategories)
+                {
+                    <span class="badge badge-primary"> @cat.CategoryName, </span>
+                }
+            </td>
+            <td>
+                @*<a class="btn btn-warning" href="/Admin/Product/Edit/@product.ProductID">რედაქტირება</a>*@
                 <a class="btn btn-danger deleteProduct" href="#" data-id="@product.ProductID">წაშლა</a>
+                @Html.ActionLink("რედაქტირება", "Edit", new { id = product.ProductID }, new { @class= "btn btn-warning" })
             </td>
         </tr>
     }
 </table>
+@* Pagination section *@
 <div class="">
-    <span class="btn btn-primary">1</span>
+
+    @if (Model.CurrentPageNumber > 1)
+    {
+        @Html.ActionLink("1", "ProductList", new { pageNumber = 1, keyWord = Model.KeyWord }, new { @class = "btn btn-default" })
+    }
+    @if (Model.CurrentPageNumber > 2)
+    {
+        @Html.ActionLink("<", "ProductList", new { pageNumber = Model.CurrentPageNumber - 1, keyWord = Model.KeyWord }, new { @class = "btn btn-default" })
+    }
+    <span class="btn btn-danger">@Model.CurrentPageNumber</span>
+    @if (Model.PageCount - Model.CurrentPageNumber >= 2)
+    {
+        @Html.ActionLink(">", "ProductList", new { pageNumber = Model.CurrentPageNumber + 1, keyWord = Model.KeyWord }, new { @class = "btn btn-default" })
+    }
+    @if (Model.CurrentPageNumber < Model.PageCount)
+    {
+
+        @Html.ActionLink(Model.PageCount.ToString(), "ProductList", new { pageNumber = Model.PageCount.Value, keyWord = Model.KeyWord }, new { @class = "btn btn-default" })
+    }
 </div>
+<script>
+    var keyword = "@Model.KeyWord";
+</script>
+

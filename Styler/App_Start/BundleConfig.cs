@@ -14,7 +14,8 @@ namespace Styler
                         "~/Scripts/toastr.min.js",
                         "~/Scripts/bootbox.min.js",
                         "~/Scripts/jquery.validate.min.js",
-                        "~/Scripts/jquery.validate.unobtrusive.js"));
+                        "~/Scripts/jquery.validate.unobtrusive.js",
+                        "~/Scripts/chosen.jquery.min.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
@@ -36,7 +37,8 @@ namespace Styler
             bundles.Add(new StyleBundle("~/AdminContent/css").Include(
                      "~/Content/bootstrap-yeti.min.css",
                      "~/Content/site.css",
-                     "~/Content/toastr.min.css"));
+                     "~/Content/toastr.min.css",
+                     "~/Content/chosen.min.css"));
         }
     }
 }

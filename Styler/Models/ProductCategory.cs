@@ -13,6 +13,6 @@ namespace Styler.Models
         public string CategoryName { get; set; }
         public string CategoryNameEng { get; set; }
         public string CategoryNameRus { get; set; }
-        //public ICollection<Product> Products { get; set; }
+        public ICollection<Product> Products { get; set; }
     }
 }

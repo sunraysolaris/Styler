@@ -202,6 +202,8 @@
     <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
     <Compile Include="Areas\Admin\Models\BaseViewModel.cs" />
     <Compile Include="Areas\Admin\Models\NavBarViewModel.cs" />
+    <Compile Include="Areas\Admin\Models\ProductEditViewModel.cs" />
+    <Compile Include="Areas\Admin\Models\ProductsListViewModel.cs" />
     <Compile Include="Areas\Admin\Models\ProductsViewModel.cs" />
     <Compile Include="Areas\Admin\Models\SearchViewModel.cs" />
     <Compile Include="Areas\Admin\Models\UserViewModel.cs" />
@@ -220,6 +222,14 @@
     <Compile Include="Migrations\201706241558109_AddProductsTableToDatabase.Designer.cs">
       <DependentUpon>201706241558109_AddProductsTableToDatabase.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201708231007182_AddCategoryManyToMany.cs" />
+    <Compile Include="Migrations\201708231007182_AddCategoryManyToMany.Designer.cs">
+      <DependentUpon>201708231007182_AddCategoryManyToMany.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708240830176_CategoriesAdd.cs" />
+    <Compile Include="Migrations\201708240830176_CategoriesAdd.Designer.cs">
+      <DependentUpon>201708240830176_CategoriesAdd.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -232,6 +242,9 @@
   <ItemGroup>
     <Content Include="Content\admin.css" />
     <Content Include="Content\adminX.css" />
+    <Content Include="Content\chosen-sprite%402x.png" />
+    <Content Include="Content\chosen-sprite.png" />
+    <Content Include="Content\chosen.min.css" />
     <Content Include="Content\toastr.css" />
     <Content Include="Content\toastr.min.css" />
     <Content Include="Resources\Images\fashion_bgifted-logo.png" />
@@ -273,6 +286,7 @@
     <Content Include="Content\toastr.less" />
     <None Include="Properties\PublishProfiles\HostBuddy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\chosen.jquery.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -350,6 +364,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706241558109_AddProductsTableToDatabase.resx">
       <DependentUpon>201706241558109_AddProductsTableToDatabase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708231007182_AddCategoryManyToMany.resx">
+      <DependentUpon>201708231007182_AddCategoryManyToMany.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708240830176_CategoriesAdd.resx">
+      <DependentUpon>201708240830176_CategoriesAdd.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
