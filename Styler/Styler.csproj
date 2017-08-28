@@ -235,8 +235,10 @@
     <Content Include="Content\toastr.css" />
     <Content Include="Content\toastr.min.css" />
     <Content Include="Resources\Images\fashion_bgifted-logo.png" />
+    <Content Include="Resources\Images\firewatch-wallpaper-6.png" />
     <Content Include="Resources\Images\icons-sprites.png" />
     <Content Include="Resources\Images\lips.jpg" />
+    <Content Include="Resources\Images\makeup-wallpaper-23232-23884-hd-wallpapers.jpg" />
     <Content Include="Resources\Images\Quinn.png" />
     <Content Include="Resources\Images\much-logo.png" />
     <Content Include="Resources\Images\metamorphosis.png" />
@@ -249,6 +251,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Resources\Images\uSi377m.jpg" />
     <Content Include="Scripts\bootbox.js" />
     <Content Include="Scripts\bootbox.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -294,6 +297,7 @@
     </Content>
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
