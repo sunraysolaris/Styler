@@ -6,7 +6,7 @@
     Products
 </div>
 <div class="panel-body">
-    @using (Html.BeginForm("CategoriesList", "Categories", FormMethod.Post, new { id = "searchForm", @class = "form-inline" }))
+    @using (Html.BeginForm("ListCategories", "Categories", FormMethod.Post, new { id = "searchForm", @class = "form-inline" }))
     {
         <div class="input-group pull-left">
             <a class="form-control btn btn-success col-md-2" href="/Admin/Categories/Edit">ახლის დამატება</a>
@@ -45,25 +45,31 @@
                     }
                 })
             })
-            $('.deleteProduct').on('click', function (e) {
+            $('.deleteCategory').on('click', function (e) {
                 e.preventDefault();
-                var delProduct = $(this);
-                var id = delProduct.attr('data-id');
+                var delCategory = $(this);
+                var id = delCategory.attr('data-id');
                 bootbox.confirm("დარწმუნებული ხართ რომ გსურთ წაშალოთ მონაცემი?", function (result) {
                     if (result) {
                         $.ajax({
-                            url: "/Admin/Product/Delete/" + id,
+                            url: "/Admin/Categories/Delete/" + id,
                             type: "Post",
                             success: function (data) {
-                                toastr.success(data.message);
-                                delProduct.closest('tr').remove();
+                                if (data.success) {
+                                    //toastr.options.fadeOut = 5000; შეიძლება პოპაპის fade-ის დროს გახანგრძლევება
+                                    toastr.success(data.message);
+                                    delCategory.closest('tr').remove();
+                                }
+                                else {
+                                    toastr.error(data.message);
+                                }
                             }
                         })
                     }
                 });
             });
 
-            //keyword-ის მნიშვნელობა ივსება "_ProductGrid" partial view-ში
+            //keyword-ის მნიშვნელობა ივსება "_CategoriesGrid" partial view-ში
             if (keyword) {
                 $('#searchBox').val(keyword);
             }

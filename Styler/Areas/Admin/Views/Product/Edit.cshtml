@@ -18,7 +18,7 @@
     <div class="panel">
         <div class="form-horizontal">
             <div class="panel-heading">
-                <h4 class="panel-heading defa">@Model.ProductName</h4>
+                <h4>@Model.ProductName</h4>
             </div>
             @*<hr />*@
             @Html.HiddenFor(model => model.ProductID)
@@ -106,7 +106,7 @@
 }
 
 <div>
-    @Html.ActionLink("სიაზე დაბრუნება", "ProductList")
+    @Html.ActionLink("სიაზე დაბრუნება", "ProductList", null, new { @class = "btn btn-default" })
 </div>
 @section scripts{
     <script>
@@ -121,9 +121,9 @@
 
             $('#categoryList').val(selected);
             $('select').trigger("chosen:updated");
-            
 
-})
+
+        })
     </script>
 
 }

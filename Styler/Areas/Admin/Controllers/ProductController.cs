@@ -102,11 +102,13 @@ namespace Styler.Areas.Admin.Controllers
                         ProductToEdit.ProductCategories.Clear();
                         ProductToEdit.ProductCategories = DbContext.Categories.Where(i => product.CurrentCategories.Contains(i.CategoryID)).ToList();
                         affectedRowCount = DbContext.SaveChanges();
+
                     }
                     else
                     {
                         product.IsError = true;
-                        product.Message = "Error Ocured!";
+                        product.Message = "მოხდა შეცდომა! მონაცემი არ მოიძებნა ბაზაში";
+                        return View(product);
                     }
                 }
                 else // while adding new item
@@ -125,9 +127,15 @@ namespace Styler.Areas.Admin.Controllers
                     });
                     affectedRowCount = DbContext.SaveChanges();
                 }
-                if (affectedRowCount > 0) // if more then 0 row changed go to List
+                if (affectedRowCount > 0)
                 {
-                    return RedirectToAction("ProductList");
+                    product.IsError = false;
+                    product.Message = "ცვლილება წარმატებით შეინახა";
+                }
+                else
+                {
+                    product.IsError = true;
+                    product.Message = "მონაცემი არ შეიცვალა";
                 }
             }
 
@@ -135,10 +143,11 @@ namespace Styler.Areas.Admin.Controllers
 
         }
 
-        public ActionResult Delete(int Id)
+        public JsonResult Delete(int Id)
         {
             var ProductToDelete = DbContext.Products.SingleOrDefault(p => p.ProductID == Id);
             string responseText = "მონაცემის წაშლისას მოხდა შცდომა";
+            var success = false;
             if (ProductToDelete != null)
             {
                 DbContext.Products.Remove(ProductToDelete);
@@ -146,10 +155,12 @@ namespace Styler.Areas.Admin.Controllers
                 if (status > 0)
                 {
                     responseText = "მონაცემი წარმატებით წაიშალა";
+                    success = true;
                 }
             }
-            return Json(new { message = responseText });
-            //return View("ProductList", new BaseViewModel { Message = result, IsError = true });
+            return Json(new { message = responseText, success = success });
+            //return View("ProductList", new BaseViewModel { Message = result, IsError = true }); 
+            //BaseViewModel საჭირო იყო სტატუსის შეტყობინების გადასაცემად. ეხლა ეს ხდება Toster Jquery plugin-ით
         }
     }
 }

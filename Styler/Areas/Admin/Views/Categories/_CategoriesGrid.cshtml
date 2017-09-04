@@ -18,7 +18,7 @@
             </td>
             <td>
                 @*<a class="btn btn-warning" href="/Admin/Product/Edit/@product.ProductID">რედაქტირება</a>*@
-                <a class="btn btn-danger deleteProduct" href="#" data-id="@Item.CategoryID">წაშლა</a>
+                <a class="btn btn-danger deleteCategory" href="#" data-id="@Item.CategoryID">წაშლა</a>
                 @Html.ActionLink("რედაქტირება", "Edit", new { id = Item.CategoryID }, new { @class = "btn btn-warning" })
             </td>
         </tr>
@@ -29,21 +29,21 @@
 
     @if (Model.CurrentPageNumber > 1)
     {
-        @Html.ActionLink("1", "ProductList", new { pageNumber = 1, keyWord = Model.KeyWord }, new { @class = "btn btn-default" })
+        @Html.ActionLink("1", "CategoriesList", new { pageNumber = 1, keyWord = Model.KeyWord }, new { @class = "btn btn-default" })
     }
     @if (Model.CurrentPageNumber > 2)
     {
-        @Html.ActionLink("<", "ProductList", new { pageNumber = Model.CurrentPageNumber - 1, keyWord = Model.KeyWord }, new { @class = "btn btn-default" })
+        @Html.ActionLink("<", "CategoriesList", new { pageNumber = Model.CurrentPageNumber - 1, keyWord = Model.KeyWord }, new { @class = "btn btn-default" })
     }
     <span class="btn btn-danger">@Model.CurrentPageNumber</span>
     @if (Model.PageCount - Model.CurrentPageNumber >= 2)
     {
-        @Html.ActionLink(">", "ProductList", new { pageNumber = Model.CurrentPageNumber + 1, keyWord = Model.KeyWord }, new { @class = "btn btn-default" })
+        @Html.ActionLink(">", "CategoriesList", new { pageNumber = Model.CurrentPageNumber + 1, keyWord = Model.KeyWord }, new { @class = "btn btn-default" })
     }
     @if (Model.CurrentPageNumber < Model.PageCount)
     {
 
-        @Html.ActionLink(Model.PageCount.ToString(), "ProductList", new { pageNumber = Model.PageCount.Value, keyWord = Model.KeyWord }, new { @class = "btn btn-default" })
+        @Html.ActionLink(Model.PageCount.ToString(), "CategoriesList", new { pageNumber = Model.PageCount.Value, keyWord = Model.KeyWord }, new { @class = "btn btn-default" })
     }
 </div>
 <script>
