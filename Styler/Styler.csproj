@@ -349,12 +349,13 @@
     <Content Include="Views\Shared\_Header.cshtml" />
     <Content Include="Views\Home\_Products.cshtml" />
     <Content Include="Views\Shared\_LeftSideMenu.cshtml" />
+    <Content Include="Views\Home\_SlideShow.cshtml" />
+    <Content Include="Views\Shared\_Footer.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Views\Base\" />
     <Folder Include="Areas\Admin\Views\NavBar\" />
-    <Folder Include="Views\Admin\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
