@@ -2,6 +2,7 @@
 using Styler.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -102,6 +103,7 @@ namespace Styler.Areas.Admin.Controllers
                         ProductToEdit.ProductCategories.Clear();
                         ProductToEdit.ProductCategories = DbContext.Categories.Where(i => product.CurrentCategories.Contains(i.CategoryID)).ToList();
                         affectedRowCount = DbContext.SaveChanges();
+                        product.CategoryList = DbContext.Categories.Where(pc => product.CurrentCategories.Contains(pc.CategoryID)).ToList();
 
                     }
                     else
@@ -126,6 +128,7 @@ namespace Styler.Areas.Admin.Controllers
                         ProductCategories = DbContext.Categories.Where(pc => product.CurrentCategories.Contains(pc.CategoryID)).ToList()
                     });
                     affectedRowCount = DbContext.SaveChanges();
+                    product.CategoryList = DbContext.Categories.Where(pc => product.CurrentCategories.Contains(pc.CategoryID)).ToList();
                 }
                 if (affectedRowCount > 0)
                 {
