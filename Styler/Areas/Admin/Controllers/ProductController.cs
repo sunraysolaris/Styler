@@ -22,7 +22,7 @@ namespace Styler.Areas.Admin.Controllers
 
             var productsQuery = DbContext
                 .Products
-                .Where(product => product.ProductName.Contains(keyWord) || keyWord == null)
+                .Where(product => product.ProductName.Contains(keyWord) || keyWord == null || product.ProductNameEng.Contains(keyWord) || product.ProductNameRus.Contains(keyWord))
                 .Select(product => new ProductViewModel
                 {
                     ProductID = product.ProductID,
